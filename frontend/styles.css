@@ -6,6 +6,19 @@ body{
     font-family: "courier new", monospace
 }
 
+.login{
+    padding: 10px 20px;
+    background-color: rgb(177, 176, 176);
+    border-radius: 15px;
+    border: none; 
+    margin-right: 25px;
+    cursor: pointer;
+    transition: 0.3s ease;
+}
+
+.login:hover{
+    background-color: rgb(131, 131, 131);
+}
 button{
     padding: 15px 30px;
     border: none;
@@ -40,21 +53,6 @@ header{
     margin: 25px;
     font-weight: 1000;
     font-size: 2.7em;
-}
-.help{
-    height: 25px;
-    width: 25px !important;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 5px !important;
-    margin: 25px;
-    border: 1px solid black;
-}
-.help:hover{
-    background-color: rgb(158, 0, 0);
-    cursor: pointer;
 }
 
 
@@ -136,7 +134,7 @@ header{
     top: 70px;
 }
 
-.formToAddPassword{
+.formToAddPassword, .form{
     position: fixed;
     display: flex;
     justify-self: center;    
@@ -150,7 +148,7 @@ header{
     align-items: center;
 }
 
-.formToAddPassword input{
+.formToAddPassword input, .form input{
     display: flex;
     height: 30px;
     margin-bottom: 14px;
@@ -175,6 +173,7 @@ input:focus{
 #formcom{
     display: flex;
     justify-content: center;
+    margin-top: 25px;
 }
 
 .errorAddingPassword {
@@ -182,4 +181,8 @@ input:focus{
     border: 3px solid red;
     border-radius: 5px;
     padding: 10px;
+}
+
+#formcom input{
+    border-bottom: 2px solid gray;
 }

@@ -8,11 +8,48 @@
 </head>
 <body>
     <header>
-        <h2 onclick="formToggle()"class="addPassword">Add Password</h2>
+        <h2 onclick="formToggle()"class="addPassword" style="font-size: 3em;">+</h2>
         <h1 class="title">Password Manager</h1>
-        <div class="help">?</div>
+        <div>
+            <button class="login signUpBtn">Sign up</button>
+            <button class="login signInBtn">Sign in</button>
+        </div>
     </header>
-    <p style="display: none;" class="helpDesc">Put passwords here to manage them easier</p>
+    
+    <form style="display: none;"action="/signin" method="POST"class="form" id="formToSignIn">
+        <div onclick="CloseSignIn()"class="signInX" style="top: 80px;cursor: pointer; position: fixed; right: 15vw; font-size: 3em;font-family: arial;">X</div>
+        <input type="hidden" name="_method" value="POST">
+        <div id="formcom">
+            <label for="usernameSignin"style="font-size: 2em;margin-top: 23px;"><b>Username or Email: </b></label>
+            <input type="text" id="formcom" name="usernameSignIn" value="">
+        </div>
+        <div id="formcom">
+            <label for="passwordSignIn"style="font-size: 2em;margin-top: 23px;"><b>Password: </b></label>
+            <input type="text" id="formcom" name="passwordSignIn" value="">
+        </div>
+        <button onclick="SignIn()" style="display: flex; justify-self: center;margin-top: 50px;"type="submit">Sign in</button>
+    </form>
+
+    <form style="display: none;"action="/signup" method="POST"class="form" id="formToSignUp">
+        <div onclick="CloseSignUp()"class="signUpX" style="top: 80px;cursor: pointer; position: fixed; right: 15vw; font-size: 3em;font-family: arial;">X</div>
+        <input type="hidden" name="_method" value="POST">
+        <div id="formcom">
+            <label for="emailSignin" style="font-size: 2em;margin-top: 23px;"><b>Email: </b></label>
+            <input type="text" id="formcom" name="emailSignIn" value="">
+        </div>
+        <div id="formcom">
+            <label for="usernameSignin" style="font-size: 2em;margin-top: 23px;"><b>Username: </b></label>
+            <input type="text" id="formcom" name="usernameSignIn" value="">
+        </div>
+        <div id="formcom">
+            <label for="passwordSignUp" style="font-size: 2em;margin-top: 23px;"><b>Password: </b></label>
+            <input type="text" id="formcom" name="passwordSignUp" value="">
+        </div>
+        <button onclick="SignUp()" style="display: flex; justify-self: center;margin-top: 50px;"type="submit">Sign Up</button>
+
+
+    </form>
+
     <main>
         <div class="section1">
             <div class="searchCont">
@@ -29,16 +66,16 @@
     <div onclick="formToggle()" class="X" style="top: 80px;cursor: pointer; position: fixed; right: 15vw; font-size: 3em;font-family: arial;">X</div>
     <input type="hidden" name="_method" value="POST">
 
-<div id="formcom" class="formTitle">
-    <label style="font-size: 2em;margin-top: 12px;"for="title"><b>Title:</b></label>
+<div id="formcom">
+    <label style="font-size: 2em;margin-top: 23px;"for="title"><b>Title:</b></label>
     <input class="formTitle" type="text" id="formcom" name="title" value="">
 </div>
-<div id="formcom" class="formTitle">
-    <label style="font-size: 2em;margin-top: 12px;"for="username"><b>Username:</b></label>
+<div id="formcom" >
+    <label style="font-size: 2em;margin-top: 23px;"for="username"><b>Username:</b></label>
     <input class="formUsername" type="text" id="formcom" name="username" value="">
 </div>
-<div id="formcom" class="formTitle">
-    <label style="font-size: 2em;margin-top: 12px;"for="password"><b>Password: </b></label>
+<div id="formcom">
+    <label style="font-size: 2em;margin-top: 23px;"for="password"><b>Password: </b></label>
     <input class="formPassword" type="text" id="formcom" name="password" value="">
 </div>
     <button onclick="addPasswordSubmit()" style="margin-top: 50px;"type="submit">Add</button>

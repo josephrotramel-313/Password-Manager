@@ -3,19 +3,24 @@ const form = document.querySelector(".formToAddPassword")
 const help = document.querySelector(".help")
 const helpDescription = document.querySelector(".helpDesc")
 
-document.querySelector(".addPassword").addEventListener('click', () => {
-    
-})
 
+function signInButtonClicked() {
+    document.querySelector("#formToSignIn").style.display = "block"
+}
+function signUpButtonClicked() {
+    document.querySelector("#formToSignUp").style.display = "block"
+}
 
+document.querySelector(".signInBtn").addEventListener('click', signInButtonClicked)
+document.querySelector(".signUpBtn").addEventListener('click', signUpButtonClicked)
 
-// Help hover functionality 
-help.addEventListener('mouseover', () => {
-    helpDescription.style.display = "block"
-})
-help.addEventListener('mouseout', () => {
-    helpDescription.style.display = "none"
-})
+function CloseSignUp() {
+    document.querySelector("#formToSignUp").style.display = "none"
+}
+function CloseSignIn() {
+    document.querySelector("#formToSignIn").style.display = "none"
+}
+
 
 //addPasswordForm toggle functionality
 function formToggle() {
