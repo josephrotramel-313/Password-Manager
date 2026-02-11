@@ -25,15 +25,25 @@
         </div>
 
 
+<form style="display: none;"class="formToAddPassword" action="/addPassword" method="POST">
+    <div onclick="formToggle()" class="X" style="top: 80px;cursor: pointer; position: fixed; right: 15vw; font-size: 3em;font-family: arial;">X</div>
+    <input type="hidden" name="_method" value="POST">
 
-        <div style="display: none;"class="formToAddPassword">
-            <div onclick="formToggle()" class="X" style="top: 80px;cursor: pointer; position: fixed; right: 15vw; font-size: 3em;font-family: arial;">X</div>
-            <div id="formcom" class="formTitle"><p style="font-size: 2em;"><b>Title: </b></p><input class="titlef" placeholder="Add Title"></div>
-            <div id="formcom" class="formUsername"><p style="font-size: 2em;"><b>Username: </b></p><input class="usernamef" placeholder="Add Username"></div>
-            <div id="formcom" class="formPassword"><p style="font-size: 2em;"><b>Password: </b></p><input class="passwordf" placeholder="Add Password"></div>
-            <button onclick="addPasswordSubmit()">Add Password</button>
-            <p class="errorAddingPassword"style="display: none;">Error adding password</p>
-        </div>
+<div id="formcom" class="formTitle">
+    <label style="font-size: 2em;margin-top: 12px;"for="title"><b>Title:</b></label>
+    <input class="formTitle" type="text" id="formcom" name="title" value="">
+</div>
+<div id="formcom" class="formTitle">
+    <label style="font-size: 2em;margin-top: 12px;"for="username"><b>Username:</b></label>
+    <input class="formUsername" type="text" id="formcom" name="username" value="">
+</div>
+<div id="formcom" class="formTitle">
+    <label style="font-size: 2em;margin-top: 12px;"for="password"><b>Password: </b></label>
+    <input class="formPassword" type="text" id="formcom" name="password" value="">
+</div>
+    <button onclick="addPasswordSubmit()" style="margin-top: 50px;"type="submit">Add</button>
+    <p class="errorAddingPassword"style="display: none;">Error adding password</p>
+</form>
     </main>
     <footer>
 
