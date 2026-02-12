@@ -74,5 +74,3 @@ function addPasswordSubmit() {
         document.querySelector(".errorAddingPassword").style.display = "block"
     }
 }
-
-

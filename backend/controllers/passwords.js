@@ -4,20 +4,23 @@ export const getAllPasswords = async(req, res) => {
     res.sendFile(path.join(root, "frontend", "index.html"))
 }
 
-export const addPassword = (req, res) => {
-    try {
-        const { title, username, password } = req.body     
-    if(!title || !username || !password) {
-        return res.status(400).json({ message: "all Fields required"})
+export const addPassword = async (req, res) => {
+  try {
+    const { title, username, password } = req.body     
+
+    if (!title || !username || !password) {
+      return res.status(400).json({ message: "All fields required" })
     }
 
-    const savedPassword =  Password.create({
+    const savedPassword = await Password.create({
       title,
       username,
       password,
     })
 
     res.status(201).json(savedPassword)
+
+
   } catch (error) {
     console.error(error)
     res.status(500).json({ message: "Server error" })

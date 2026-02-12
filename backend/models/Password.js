@@ -19,6 +19,6 @@ const passwordSchema = new mongoose.Schema(
   { timestamps: true }
 )
 
-const Password = mongoose.model("Password", passwordSchema)
+const Password = mongoose.model("Password", passwordSchema, "passwords")
 
 export default Password
