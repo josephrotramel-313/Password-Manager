@@ -39,13 +39,16 @@ header{
 }
 
 .addPassword{
-    margin: 25px;
-    font-weight: 500;
+    border-radius: 50%;
+    font-weight: 100;
+    padding: 1px 10px;
     cursor: pointer;
+    margin-left: 25px;
+    transition: 0.2s ease;
 }
 
 .addPassword:hover{
-    font-weight: 600;
+    background-color: rgba(128, 128, 128, 0.722);
 }
 
 .title{
