@@ -9,7 +9,7 @@ export const addPassword = async (req, res) => {
     const { title, username, password } = req.body     
 
     if (!title || !username || !password) {
-      return res.status(400).json({ message: "All fields required" })
+      return
     }
 
     const savedPassword = await Password.create({
@@ -33,4 +33,8 @@ export const updatePassword = (req,res) => {
 
 export const deletePassword = (req,res) => {
     res.send(`password: ${req.params.id} Deleted successfully`)
+}
+
+export const getSpecificPassword = (req,res) => {
+    res.send(`password: ${req.params.id}`)
 }

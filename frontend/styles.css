@@ -186,3 +186,25 @@ input:focus{
 #formcom input{
     border-bottom: 2px solid gray;
 }
+
+.pfp{
+    height: 50px;
+    width: 50px;
+    padding: 0;
+    margin: 0;
+    display: none;
+    margin-right: 25px;
+}
+
+.greeting{
+    background-color: rgb(126, 196, 126);
+    border: 4px solid green;
+    border-radius: 15px;
+    padding: 10px;
+    font-size: 2em;
+    text-align: center;
+    width: 50vw;
+    display: none;
+    justify-self: center;
+    justify-content: center;
+}

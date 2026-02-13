@@ -1,7 +1,12 @@
 let rot = 0
-const form = document.querySelector(".formToAddPassword")
-const help = document.querySelector(".help")
-const helpDescription = document.querySelector(".helpDesc")
+const formToAddPassword = document.querySelector(".formToAddPassword")
+const signUpForm = document.querySelector("#formToSignUp")
+const signInForm = document.querySelector("#formToSignIn")
+const signUpBtn = document.querySelector(".signUpBtn")
+const signInBtn = document.querySelector(".signInBtn")
+const pfp = document.querySelector(".pfp")
+let isLoggedIn = false
+
 
 
 function signInButtonClicked() {
@@ -14,63 +19,66 @@ function signUpButtonClicked() {
 document.querySelector(".signInBtn").addEventListener('click', signInButtonClicked)
 document.querySelector(".signUpBtn").addEventListener('click', signUpButtonClicked)
 
-function CloseSignUp() {
-    document.querySelector("#formToSignUp").style.display = "none"
-}
-function CloseSignIn() {
-    document.querySelector("#formToSignIn").style.display = "none"
-}
-
 
 //addPasswordForm toggle functionality
-function formToggle() {
+function formToAddPasswordToggle() {
     if(rot === 0){
-        form.style.display = "flex"
+        formToAddPassword.style.display = "flex"
         rot = 1
     } else{
-        form.style.display = "none"
+        formToAddPassword.style.display = "none"
         rot = 0
     }
 }
 
-function addPassword(title, username, password) {
-    const boxes = document.querySelector(".boxes")
-    const newBox = document.createElement("div")
-    newBox.classList.add("box")
-    const newTitle = document.createElement("h2")
-    newTitle.textContent = title
-    newTitle.classList.add("boxTitle")
-    newBox.appendChild(newTitle)
-    const newUsername = document.createElement("p")
-    newUsername.textContent = "Username: " + username
-    newUsername.classList.add("boxp")
-    newBox.appendChild(newUsername)
-    const newPassword = document.createElement("p")
-    newPassword.textContent = "Password: " + password
-    newPassword.classList.add("boxp")
-    newBox.appendChild(newPassword)
-    const boxMenu = document.createElement("img")
-    boxMenu.classList.add("boxMenu")
-    boxMenu.src = "./src/menu-vertical-svgrepo-com (1).svg"
-    newBox.appendChild(boxMenu)
-    boxes.appendChild(newBox)
-    document.querySelector(".noPasswordsError").style.display = "none"
+document.querySelector(".signInX").addEventListener('click', () => {signInForm.style.display = "none"})
+document.querySelector(".signUpX").addEventListener('click', () => {signUpForm.style.display = "none"})
 
-}
 
-//addPasswordForm functionality
-function addPasswordSubmit() {
-    const title = document.querySelector(".titlef")
-    const username = document.querySelector(".usernamef")
-    const password = document.querySelector(".passwordf")
-    if (title.value != "" && username.value != "" && password.value != "") {
-        addPassword(title.value, username.value, password.value)
-        formToggle()
-        document.querySelector(".errorAddingPassword").style.display = "none"
-        title.value = ""
-        username.value = ""
-        password.value = ""
-        } else {
-        document.querySelector(".errorAddingPassword").style.display = "block"
-    }
-}
+
+signUpForm.addEventListener("submit", async (e) => {
+    e.preventDefault()
+    isLoggedIn = true
+    signInBtn.style.display = "none"
+    signUpBtn.style.display = "none"
+    pfp.style.display = "block"
+
+
+  const formData = new FormData(signUpForm)
+
+  const data = {
+    email: formData.get("email"),
+    username: formData.get("username"),
+    password: formData.get("password")
+  }
+
+  const response = await fetch("/signup", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(data)
+  })
+
+  const result = await response.json()
+
+
+  console.log("username: " + result.savedUser.username + "password" + result.savedUser.password)
+  const username = result.savedUser.username
+  const password = result.savedUser.password
+  const email = result.savedUser.email
+
+    const welcomeEl = document.querySelector(".welcome");
+    const greeting = document.querySelector(".greeting");
+    greeting.style.display = "flex";
+    greeting.textContent = `Welcome ${username}`;
+
+
+    setTimeout(() => {
+      greeting.style.display = "none";
+    }, 3000);
+
+  signUpForm.style.display = "none"
+})
+
+
