@@ -4,6 +4,7 @@ const signUpForm = document.querySelector("#formToSignUp")
 const signInForm = document.querySelector("#formToSignIn")
 const signUpBtn = document.querySelector(".signUpBtn")
 const signInBtn = document.querySelector(".signInBtn")
+const pfpCont = document.querySelector(".pfpCont")
 const pfp = document.querySelector(".pfp")
 let isLoggedIn = false
 
@@ -41,7 +42,7 @@ signUpForm.addEventListener("submit", async (e) => {
     isLoggedIn = true
     signInBtn.style.display = "none"
     signUpBtn.style.display = "none"
-    pfp.style.display = "block"
+    pfpCont.style.display = "flex"
 
 
   const formData = new FormData(signUpForm)
@@ -72,6 +73,7 @@ signUpForm.addEventListener("submit", async (e) => {
     const greeting = document.querySelector(".greeting");
     greeting.style.display = "flex";
     greeting.textContent = `Welcome ${username}`;
+    pfp.textContent = username
 
 
     setTimeout(() => {
