@@ -1,7 +1,7 @@
 import Password from "../models/Password.js"
 
 export const getAllPasswords = async(req, res) => {
-    res.sendFile(path.join(root, "frontend", "index.html"))
+  res.send("hello")
 }
 
 export const addPassword = async (req, res) => {

@@ -48,7 +48,7 @@ header{
 }
 
 .addPassword:hover{
-    background-color: rgba(128, 128, 128, 0.722);
+    background-color: rgba(128, 128, 128, 0.81);
 }
 
 .title{
@@ -127,17 +127,6 @@ header{
     outline: none;
 }
 
-.helpDesc{
-    background-color: rgba(128, 128, 128, 0.703);
-    padding: 2px;
-    border-radius: 15px;
-    width: 100px;
-    position: fixed;
-    right: 15px;
-    padding: 5px;
-    top: 70px;
-}
-
 .formToAddPassword, .form{
     position: fixed;
     display: flex;
@@ -174,21 +163,15 @@ input:focus{
     outline: none;
 }
 
-#formcom{
+.formcom{
     display: flex;
     justify-content: center;
-    margin-top: 25px;
+    margin-top: 50px;
 }
 
-.errorAddingPassword {
-    background-color: rgb(234, 92, 92);
-    border: 3px solid red;
-    border-radius: 5px;
-    padding: 10px;
-}
-
-#formcom input{
+.formcom input{
     border-bottom: 2px solid gray;
+    margin-top: 25px;
 }
 
 .pfpimg{
@@ -227,4 +210,10 @@ input:focus{
     display: none;
     justify-self: center;
     justify-content: center;
+}
+
+.signinError {
+    color: red;
+    font-size: 1.53em;
+    text-align: center;
 }

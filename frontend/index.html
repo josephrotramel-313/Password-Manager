@@ -26,15 +26,16 @@
     <form style="display: none;"action="/signin" method="POST"class="form" id="formToSignIn">
         <div onclick="CloseSignIn()"class="signInX" style="top: 80px;cursor: pointer; position: fixed; right: 15vw; font-size: 3em;font-family: arial;">X</div>
         <input type="hidden" name="_method" value="POST">
-        <div id="formcom">
+        <div class="formcom">
             <label for="usernameSignin"style="font-size: 2em;margin-top: 23px;"><b>Username: </b></label>
-            <input type="text" id="formcom" name="usernameSignIn" value="" required>
+            <input type="text" class="formcom" name="username" value="" required>
         </div>
-        <div id="formcom">
+        <div class="formcom">
             <label for="passwordSignIn"style="font-size: 2em;margin-top: 23px;"><b>Password: </b></label>
-            <input type="text" id="formcom" name="passwordSignIn" value="" required>
+            <input type="text" class="formcom" name="password" value="" required>
         </div>
-        <button onclick="SignIn()" style="display: flex; justify-self: center;margin-top: 50px;"type="submit">Sign in</button>
+        <button style="display: flex; justify-self: center;margin-top: 50px;"type="submit">Sign in</button>
+            <p class="signinError"style="display: none;">Error signing in, try again later</p>
     </form>
 
 
@@ -42,19 +43,19 @@
     <form style="display: none;"action="/signup" method="POST"class="form" id="formToSignUp">
         <div onclick="CloseSignUp()"class="signUpX" style="top: 80px;cursor: pointer; position: fixed; right: 15vw; font-size: 3em;font-family: arial;">X</div>
         <input type="hidden" name="_method" value="POST">
-        <div id="formcom">
+        <div class="formcom">
             <label for="emailSignin" style="font-size: 2em;margin-top: 23px;"><b>Email: </b></label>
-            <input type="text" id="formcom" name="email" value="" required>
+            <input type="text" class="formcom" name="email" value="" required>
         </div>
-        <div id="formcom">
+        <div class="formcom">
             <label for="usernameSignin" style="font-size: 2em;margin-top: 23px;"><b>Username: </b></label>
-            <input type="text" id="formcom" name="username" value="" required>
+            <input type="text" class="formcom" name="username" value="" required>
         </div>
-        <div id="formcom">
+        <div class="formcom">
             <label for="passwordSignUp" style="font-size: 2em;margin-top: 23px;"><b>Password: </b></label>
-            <input type="text" id="formcom" name="password" value="" required>
+            <input type="text" class="formcom" name="password" value="" required>
         </div>
-        <button onclick="SignUp()" style="display: flex; justify-self: center;margin-top: 50px;"type="submit">Sign Up</button>
+        <button style="display: flex; justify-self: center;margin-top: 50px;"type="submit">Sign Up</button>
 
 
     </form>
@@ -65,7 +66,7 @@
                 <h2 class="searchTitle">Search</h2>
                 <input class="searchInput" placeholder="Search Passwords">
             </div>
-            <p class="noPasswordsError"style="text-align: center; margin-left: 20vw; margin-right: 20vw; font-size: 1.5em;">You have no passwords, please login or register. If you are registered click the <b>+</b> in the top left to add a password</p>
+            <p class="noPasswordsError"style="text-align: center; margin-left: 20vw; margin-right: 20vw; font-size: 1.5em;">Please login to continue</p>
             <div class="boxes">
             </div>
         </div>
@@ -75,17 +76,17 @@
     <div onclick="formToAddPasswordToggle()" class="X" style="top: 80px;cursor: pointer; position: fixed; right: 15vw; font-size: 3em;font-family: arial;">X</div>
     <input type="hidden" name="_method" value="POST">
 
-<div id="formcom">
+<div class="formcom">
     <label style="font-size: 2em;margin-top: 23px;"for="title"><b>Title:</b></label>
-    <input class="formTitle" type="text" id="formcom" name="title" value="" required>
+    <input class="formTitle" type="text" class="formcom" name="title" value="" required>
 </div>
-<div id="formcom" >
+<div class="formcom" >
     <label style="font-size: 2em;margin-top: 23px;"for="username"><b>Username:</b></label>
-    <input class="formUsername" type="text" id="formcom" name="username" value="" required>
+    <input class="formUsername" type="text" class="formcom" name="username" value="" required>
 </div>
-<div id="formcom">
+<div class="formcom">
     <label style="font-size: 2em;margin-top: 23px;"for="password"><b>Password: </b></label>
-    <input class="formPassword" type="text" id="formcom" name="password" value=""required>
+    <input class="formPassword" type="text" class="formcom" name="password" value=""required>
 </div>
     <button onclick="addPasswordSubmit()" style="margin-top: 50px;"type="submit">Add</button>
     <p class="errorAddingPassword"style="display: none;">Error adding password</p>
