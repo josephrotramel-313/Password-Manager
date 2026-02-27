@@ -1,5 +1,5 @@
 import jwt from "jsonwebtoken"
-const unprotectedRoutes = ["/signin", "/signup", "/"]
+const unprotectedRoutes = ["/signin", "/signup", "/mypasswords"]
 
 
 export default function authenticateToken(req, res, next) {

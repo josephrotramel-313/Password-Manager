@@ -5,7 +5,7 @@ import 'dotenv/config'
 const app = express()
 import { connectDB } from "./config/db.js"
 const root = path.resolve(import.meta.dirname, "..")
-import { addPassword, deletePassword, getAllPasswords, getSpecificPassword, updatePassword } from "./controllers/passwords.js"
+import { addPassword, deletePassword, getAllPasswords, getSpecificPassword, home, updatePassword } from "./controllers/passwords.js"
 import { signIn, signUp } from "./controllers/users.js"
 import authenticateToken from "./middleware/authenticateUser.js"
 connectDB()
@@ -23,9 +23,10 @@ app.listen(PORT, () => {
 // Unprotected Routes
 app.post("/signup", signUp)
 app.post("/signin", signIn)
-app.get("/", getAllPasswords)
+app.get("/", home)
 
 // Protected Routes
+app.post("/mypasswords", getAllPasswords)
 app.get("/mypasswords/:id", getSpecificPassword)
 app.post("/mypasswords/addPassword", addPassword)
 app.put("/mypasswords/:id", updatePassword)

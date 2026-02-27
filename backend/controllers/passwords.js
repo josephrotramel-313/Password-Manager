@@ -1,10 +1,16 @@
 import Password from "../models/Password.js"
+import jwt from "jsonwebtoken"
+import path from "path"
+const root = path.resolve(import.meta.dirname, "..")
 
 export const getAllPasswords = async(req, res) => {
-  res.send("hello")
+  const token = req.headers.authorization.split(" ")[1]
+  const decoded = jwt.verify(token, process.env.JWT_SECRET);
+  res.json(decoded)
 }
 
 export const addPassword = async (req, res) => {
+  
   try {
     const { title, username, password } = req.body     
 
@@ -16,6 +22,7 @@ export const addPassword = async (req, res) => {
       title,
       username,
       password,
+      user: req.user.userId
     })
 
     res.status(201).json(savedPassword)
@@ -37,4 +44,8 @@ export const deletePassword = (req,res) => {
 
 export const getSpecificPassword = (req,res) => {
     res.send(`password: ${req.params.id}`)
+}
+
+export const home = (req,res) => {
+  res.sendFile(path.join(root, "frontend", "index.html"))
 }

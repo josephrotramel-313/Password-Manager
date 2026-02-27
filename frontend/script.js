@@ -8,6 +8,23 @@ const pfpCont = document.querySelector(".pfpCont")
 const pfp = document.querySelector(".pfp")
 let isLoggedIn = false
 
+function greeting(username) {
+  isLoggedIn = true
+  signInBtn.style.display = "none"
+  signUpBtn.style.display = "none"
+  pfpCont.style.display = "flex"
+  const greeting = document.querySelector(".greeting");
+  greeting.style.display = "flex";
+  greeting.textContent = `Welcome ${username}`;
+  pfp.textContent = username
+  document.querySelector(".noPasswordsError").textContent = "Press the + to add a password"
+
+
+  setTimeout(() => {
+    greeting.style.display = "none";
+  }, 3000);
+
+}
 
 function signInButtonClicked() {
     document.querySelector("#formToSignIn").style.display = "block"
@@ -34,24 +51,6 @@ function formToAddPasswordToggle() {
 document.querySelector(".signInX").addEventListener('click', () => {signInForm.style.display = "none"})
 document.querySelector(".signUpX").addEventListener('click', () => {signUpForm.style.display = "none"})
 
-function greeting(username) {
-  isLoggedIn = true
-  signInBtn.style.display = "none"
-  signUpBtn.style.display = "none"
-  pfpCont.style.display = "flex"
-  const greeting = document.querySelector(".greeting");
-  greeting.style.display = "flex";
-  greeting.textContent = `Welcome ${username}`;
-  pfp.textContent = username
-  document.querySelector(".noPasswordsError").textContent = "Press the + to add a password"
-
-
-  setTimeout(() => {
-    greeting.style.display = "none";
-  }, 3000);
-
-
-}
 
 
 signUpForm.addEventListener("submit", async (e) => {
